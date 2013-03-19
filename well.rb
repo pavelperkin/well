@@ -12,7 +12,7 @@ def well input_file
   return 0 if disks.min > rings.max # no sense to call a method
   rings = rings[0...rings.index(rings.min)] if disks.min > rings.min # cut the rings array
  # cut the disks array 
-  disks = disks[0..(disks.count(disks.max) > 1 ? disks.length - disks.reverse.index(disks.max) - 1 : disks.index(disks.max))] if disks.max > rings.min 
+  disks = disks[0..disks.index(disks.max)] if disks.max > rings.max 
   return get_disks_amount(disks, rings, 0) # start checking 
 end
 
